@@ -17,8 +17,26 @@
 //     .then((res) => res.json()).then(data => console.log(data));
 
 const mySearch = document.getElementById("search");
+const autoComplete = document.getElementById("autoComplete");
 
 mySearch.addEventListener("input", i =>{
     //console.log(i.target.value);
+    autoComplete.innerHTML = '';
+    fetch(`https://api.datamuse.com/words?sp=${i.target.value}??`)
+    .then(res=> res.json())
+    .then(data => {
+        for(let {word} of data){
+            console.log(word)
+            const li = document.createElement('li');
+            li.innerText = word;
+            autoComplete.appendChild(li);
+        }
+        if(mySearch.value === '') autoComplete.innerHTML = '';
+    });
     
 })
+
+// mySearch.addEventListener("keyup", e =>{
+//     console.log("tasto premuto")
+//     autoComplete.innerHTML = '';
+// })

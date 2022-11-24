@@ -26,6 +26,7 @@ header{
 }
 
 #inp{
+    position: relative;
     border: 2px solid black;
     background-color: white;
     padding: 0px 15px;
@@ -47,4 +48,31 @@ header{
     /* height: 20px; */
     width: 150px;
     font-size: 14px;
+}
+
+#autoComplete{
+    position:absolute;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    width: 90%;
+    margin: 10px;
+    
+    
+    background-color: white;
+    color: black;
+    top: 30px;
+    left: 0px;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+#autoComplete li{
+    list-style-type: none;
+    width: 90%;
+    padding: 5px 10px;
+}
+
+#autoComplete li:hover{
+    background-color: gray;
+    border-radius: 5px;
 }
