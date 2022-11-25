@@ -8,6 +8,10 @@ h2{
     color: white;
 }
 
+li{
+    cursor: pointer;
+}
+
 header{
     background-color: rgb(66, 104, 239);
     color: white;
@@ -82,7 +86,7 @@ header{
     border-radius: 5px;
 }
 
-#btn{
+#btnImposta{
     width: 100%;
     height: 100%;
     border-radius: 0 25px 25px 0;
@@ -93,7 +97,7 @@ header{
     color: white;
     font-weight:bold;
 }
-#btn:hover{
+#btnImposta:hover{
     background-color: #b6b9be;
 }
 
