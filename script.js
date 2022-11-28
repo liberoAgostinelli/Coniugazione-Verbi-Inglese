@@ -109,3 +109,19 @@ btnSubmit.addEventListener('click', e => {
           });
     })
 })
+
+// Button annulla
+
+const btnAnnulla = document.getElementById('annulla');
+
+btnAnnulla.addEventListener('click', e =>{
+    if(mySearch.value === '') conjugate.innerText = 'Conjugate to ';
+    sceltaSearch = mySearch.value;
+    conjugate.innerText = 'Conjugate to ' + mySearch.value;
+    mySearch.value = '';
+    impostaStileInput();
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+})

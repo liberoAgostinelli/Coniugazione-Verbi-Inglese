@@ -179,7 +179,8 @@ main{
 #btnSubmit{
     width: 300px;
     height: 40px;
-    margin: 10px;
+    margin: 20px 50px;
+    
     font-size: 25px;
     color: white;
     background-color: rgb(66, 104, 239);
@@ -189,5 +190,21 @@ main{
 }
 
 #btnSubmit:hover{
+    background-color: rgb(70, 129, 213);
+}
+
+#annulla{
+    width: 300px;
+    height: 40px;
+    margin: 20px 50px;
+    font-size: 25px;
+    color: white;
+    background-color: rgb(66, 104, 239);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#annulla:hover{
     background-color: rgb(70, 129, 213);
 }
