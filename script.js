@@ -56,6 +56,7 @@ function impostaStileInput(){
             indicative.children[i].children[j+1].children[1].style.borderRadius='2px';
             indicative.children[i].children[j+1].children[1].style.padding='1px';
             indicative.children[i].children[j+1].children[1].value = '';
+           
         }
 
     }
@@ -94,6 +95,11 @@ btnSubmit.addEventListener('click', e => {
                 if(valoreAPI[1] !== valoreUtente){
                     indicative.children[i].children[j+1].children[1].style.border='1px solid red';
                 }
+                //----
+                indicative.children[i].children[j+1].children[2].addEventListener('click', e =>{
+                    console.log('cliccato btn show!');
+                    indicative.children[i].children[j+1].children[1].value = valoreAPI[1];
+                })
             }
             //console.log(conjugation_tables.indicative[0].forms[i])
             // console.log('Valore api: ' + s[1]);
@@ -115,12 +121,12 @@ btnSubmit.addEventListener('click', e => {
 const btnAnnulla = document.getElementById('annulla');
 
 btnAnnulla.addEventListener('click', e =>{
-    if(mySearch.value === '') conjugate.innerText = 'Conjugate to ';
+    if(mySearch.value === '') conjugate.innerText = 'Conjugate to '; 
     sceltaSearch = mySearch.value;
     conjugate.innerText = 'Conjugate to ' + mySearch.value;
     mySearch.value = '';
     impostaStileInput();
-    window.scrollTo({
+    window.scrollTo({ // Scroll inizio pagina in modo lento
         top: 0,
         behavior: 'smooth'
       });
