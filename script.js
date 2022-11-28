@@ -1,23 +1,10 @@
 "use strict"
 
-// const divApi = document.getElementById("api");
-
-// const i = document.getElementById("search");
-
-// const btn = document.getElementById("btn");
-
-// btn.addEventListener("click", call =>{
-//     let s = i.value;
-//     console.log(s);
-//     fetch(`https://lt-nlgservice.herokuapp.com/rest/english/conjugate?verb=${s}`)
-//     .then((res) => res.json()).then(data => divApi.innerText = JSON.stringify(data, null));
-// })
-
-// fetch('https://lt-nlgservice.herokuapp.com/rest/english/conjugate?verb=change')
-//     .then((res) => res.json()).then(data => console.log(data));
+let sceltaSearch;
 
 const mySearch = document.getElementById("search");
 const autoComplete = document.getElementById("autoComplete");
+
 
 // Event listener che riceve i dati api da datamuse.com
 mySearch.addEventListener("input", i =>{    // Event listener per richiedere i dati ad ogni parola inserita
@@ -57,12 +44,68 @@ body.addEventListener('click', e =>{
 
 const btnImposta = document.getElementById('btnImposta');
 const conjugate = document.getElementById('conjugate');
+const indicative = document.getElementById('indicative');
+
+/* Funzione per reimpostare i giusti bordi agli imput modificati nella Fetch del bottone verifica*/
+
+function impostaStileInput(){
+    for(let i = 0; i<12; i++){
+        
+        for(let j = 0; j<6; j++){
+            indicative.children[i].children[j+1].children[1].style.border='1px solid black';
+            indicative.children[i].children[j+1].children[1].style.borderRadius='2px';
+            indicative.children[i].children[j+1].children[1].style.padding='1px';
+            indicative.children[i].children[j+1].children[1].value = '';
+        }
+
+    }
+}
 
 btnImposta.addEventListener('click', e =>{
-    if(mySearch.value === '') conjugate.innerText = 'Conjugate => '
-    conjugate.innerText = 'Conjugate => ' + mySearch.value;
+    if(mySearch.value === '') conjugate.innerText = 'Conjugate to ';
+    sceltaSearch = mySearch.value;
+    conjugate.innerText = 'Conjugate to ' + mySearch.value;
     mySearch.value = '';
+    impostaStileInput();
 })
 
+// Parte Main per la verifica dell'esercizio
+
+const btnSubmit = document.getElementById('btnSubmit');
+
+const simplePresent = document.getElementById('simplePresent');
+// Button Verifica
+btnSubmit.addEventListener('click', e => {
+    console.log("ok btnSubmit, scelta: " + sceltaSearch);
+    fetch(`https://lt-nlgservice.herokuapp.com/rest/english/conjugate?verb=${sceltaSearch}`)
+    .then(res => res.json())
+    .then(data => {
+        const {conjugation_tables} = data; // Destrutturazione dati dell'API, Estrazione conjugation_tables
+        for(let i = 0; i<12; i++){
+            // let s = conjugation_tables.indicative[0].forms[i];
+            console.log(conjugation_tables.indicative); // Tabella Indicative dentro conjugation_tables
+            for(let j = 0; j<6; j++){
+                console.log('Nel ciclo interno j');
+                let valoreUtente = indicative.children[i].children[j+1].children[1].value;
+                console.log(indicative.children[i].children[j+1].children[1]);
+                console.log(valoreUtente); // Valori immessi dall'utente
+                let valoreAPI = conjugation_tables.indicative[i].forms[j]; // Valori dall'API
+                console.log(valoreAPI[1]);
+                if(valoreAPI[1] !== valoreUtente){
+                    indicative.children[i].children[j+1].children[1].style.border='1px solid red';
+                }
+            }
+            //console.log(conjugation_tables.indicative[0].forms[i])
+            // console.log('Valore api: ' + s[1]);
+            // console.log(simplePresent.children[i+1]);
+            // console.log(simplePresent.children[i+1].children[1].value)
+            console.log(indicative.children[i]);
 
 
+        }
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+    })
+})
