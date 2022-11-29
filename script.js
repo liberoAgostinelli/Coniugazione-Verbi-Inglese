@@ -93,7 +93,10 @@ btnSubmit.addEventListener('click', e => {
                 let valoreAPI = conjugation_tables.indicative[i].forms[j]; // Valori dall'API
                 console.log(valoreAPI[1]);
                 if(valoreAPI[1] !== valoreUtente){
-                    indicative.children[i].children[j+1].children[1].style.border='1px solid red';
+                    indicative.children[i].children[j+1].children[1].style.border='2px solid red';
+                }
+                else{
+                    indicative.children[i].children[j+1].children[1].style.border='2px solid green';
                 }
                 //----
                 indicative.children[i].children[j+1].children[2].addEventListener('click', e =>{
