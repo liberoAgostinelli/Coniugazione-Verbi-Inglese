@@ -26,7 +26,7 @@ header{
 }
 #title{
     font-size: 30px;
-    padding-right: 30px;
+    padding-right: 700px;
 }
 
 #imgLogo{
@@ -119,7 +119,7 @@ main{
     padding: 15px;
     background-color: rgb(70, 129, 213);
     color: white;
-    margin: 10px;
+    margin: 20px;
     /* transition: 0.8s; */
 }
 
