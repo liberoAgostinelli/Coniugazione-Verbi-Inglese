@@ -229,3 +229,17 @@ main{
 .btnFondo:hover{
     background-color: rgb(70, 129, 213);
 } */
+
+footer{
+    background-color: rgb(40, 39, 39);
+    width: 100%;
+    height: 80px;
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+}
+
+#author{
+    color: white;
+    padding: 0 30px;
+}
