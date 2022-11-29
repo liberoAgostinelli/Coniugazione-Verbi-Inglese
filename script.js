@@ -84,7 +84,7 @@ btnSubmit.addEventListener('click', e => {
         const {conjugation_tables} = data; // Destrutturazione dati dell'API, Estrazione conjugation_tables
         for(let i = 0; i<12; i++){
             // let s = conjugation_tables.indicative[0].forms[i];
-            console.log(conjugation_tables.indicative); // Tabella Indicative dentro conjugation_tables
+            console.log(conjugation_tables); // Tabella Indicative dentro conjugation_tables
             for(let j = 0; j<6; j++){
                 console.log('Nel ciclo interno j');
                 let valoreUtente = indicative.children[i].children[j+1].children[1].value;

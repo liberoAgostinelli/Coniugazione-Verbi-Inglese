@@ -177,12 +177,12 @@ main{
 }
 
 #show{
-    border-radius: 50%;
+    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 30px;
-    height: 28px;
+    height: 30px;
     /* padding: 3px 4px; */
     transition: 0.3s all;
 }
@@ -192,8 +192,8 @@ main{
 }
 
 #show img{
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
 }
 
 /* btnSubmit */
