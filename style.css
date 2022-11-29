@@ -26,7 +26,8 @@ header{
 }
 #title{
     font-size: 30px;
-    padding-right: 700px;
+    padding-right: 10px;
+    
 }
 
 #imgLogo{
@@ -44,6 +45,7 @@ header{
     align-items: center;
     height: 35px;
     border-radius: 30px;
+    margin-left: 20%;
 }
 
 #lblHeader{
@@ -56,7 +58,7 @@ header{
     border: none;
     outline: none;
     /* height: 20px; */
-    width: 150px;
+    width: 200px;
     font-size: 14px;
 }
 
