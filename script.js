@@ -98,7 +98,8 @@ btnSubmit.addEventListener('click', e => {
                 else{
                     indicative.children[i].children[j+1].children[1].style.border='2px solid green';
                 }
-                //----
+                // EventListener Tasto Correzione
+
                 indicative.children[i].children[j+1].children[2].addEventListener('click', e =>{
                     console.log('cliccato btn show!');
                     indicative.children[i].children[j+1].children[1].value = valoreAPI[1];
