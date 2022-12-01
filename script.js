@@ -79,6 +79,7 @@ const simplePresent = document.getElementById('simplePresent');
 btnSubmit.addEventListener('click', e => {
     console.log("ok btnSubmit, scelta: " + sceltaSearch);
     fetch(`https://lt-nlgservice.herokuapp.com/rest/english/conjugate?verb=${sceltaSearch}`,{
+        mode: 'no-cors',
         headers: {
             "Accept": "application/json",
             "Access-Control-Allow-Origin": "*",
