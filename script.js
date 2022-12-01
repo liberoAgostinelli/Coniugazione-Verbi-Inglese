@@ -80,7 +80,7 @@ btnSubmit.addEventListener('click', e => {
     console.log("ok btnSubmit, scelta: " + sceltaSearch);
     fetch(`https://lt-nlgservice.herokuapp.com/rest/english/conjugate?verb=${sceltaSearch}`, {
         mode: 'no-cors',
-        method: "post",
+        method: "get",
         headers: {
              "Content-Type": "application/json"
         }})
