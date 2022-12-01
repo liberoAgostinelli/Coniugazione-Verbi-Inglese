@@ -78,7 +78,10 @@ const simplePresent = document.getElementById('simplePresent');
 // Button Verifica
 btnSubmit.addEventListener('click', e => {
     console.log("ok btnSubmit, scelta: " + sceltaSearch);
-    fetch(`https://lt-nlgservice.herokuapp.com/rest/english/conjugate?verb=${sceltaSearch}`)
+    fetch(`https://lt-nlgservice.herokuapp.com/rest/english/conjugate?verb=${sceltaSearch}`,{
+        headers: {
+          'Access-Control-Allow-Origin': '*'
+        }})
     .then(res => res.json())
     .then(data => {
         const {conjugation_tables} = data; // Destrutturazione dati dell'API, Estrazione conjugation_tables
